@@ -1,0 +1,92 @@
+class node
+{
+	int data;
+	node next;
+	
+	
+	node()
+	{
+		data =0;
+		next =null;
+	}
+	node(int x)
+	{
+		data =x;
+		next =null;
+	}
+}
+public class linkedlist {
+	
+	node head;
+	void add(int data)
+	 {
+		 node nd = new node();
+		 nd.data =data;
+		 nd.next=null;
+		
+		 if(head==null)
+		 {
+			  head= nd;	
+		 }
+		 
+		 else
+		 {
+			node n = head;
+			while(n.next!=null)
+			{
+				n= n.next;
+			}
+			n.next=nd;
+		 }
+	 }
+	
+	
+	 void display()
+	 {
+		 node nd = head;
+		 
+		 while(nd!=null)
+		 {
+			 System.out.print(nd.data+" ");
+			 nd =nd.next;
+		 }
+		 System.out.println("\n");
+	 }
+	 
+	 void interchnage()
+	 {
+		 int x;
+		 node temp = head;
+		 if(temp.next == null)
+		 {
+			 System.out.println(temp.data);
+		 }
+		 else
+		 {
+			 while(temp!=null)
+			 {
+				 x =temp.data;
+				 temp.data = temp.next.data;
+				 temp.next.data =x;
+				 temp =temp.next.next;
+			 }
+			 
+		 }
+		 
+		 
+			
+	 }
+
+	public static void main(String[] args) {
+		
+		linkedlist l1 = new linkedlist();
+		l1.add(1);
+		l1.add(2);
+		l1.add(3);
+		l1.add(4);
+		l1.display();
+		l1.interchnage();
+		l1.display();
+	}
+
+}
