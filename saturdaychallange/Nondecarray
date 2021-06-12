@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Nondecarray {
+	static int maxid,low,count=0;
+	
+	public static void main(String[] args) {
+		
+		int n,ch=0;
+		System.out.println("ENter N");
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt();
+		int a[] = new int[n];
+		System.out.println("enter array element");
+		for(int i=0;i<n;i++)
+		{
+			a[i]=sc.nextInt();
+		}
+		
+		int max = a[0];
+		
+		for(int i =0;i<n;i++)
+		{
+			if(a[i]>max)
+			{
+				max =a[i];
+				maxid =i;
+			}
+			
+		}
+		if(maxid==0)
+		{
+			maxid =maxid+1;
+		}
+		else {
+			ch =maxid-1;
+		}
+		
+		if(maxid!=n-1)
+		{
+			for(int i =ch;i<n;i++)
+			{
+				if(a[ch]>a[i])
+				{
+					low=i ;
+				}
+			}
+			
+			for(int i =maxid;i<=low;i++)
+			{
+				System.out.print(a[i]+" ");
+				count++;
+			}
+		}
+		
+		
+		if(count==0)
+		{
+			System.out.println("\nNo such subarray found");
+		}
+		else
+		{
+			System.out.println("\nlength "+count);
+		}
+		
+	}
+
+}
